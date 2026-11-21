@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHANI CLIP AI</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;background:#080d18;color:white;
+ font-family:Arial,sans-serif;
+}
+header{
+ padding:22px 18px;
+ background:#101a2b;
+ border-bottom:1px solid #26344b;
+}
+.logo{font-size:25px;font-weight:bold;color:#49e5a2}
+.logo span{color:white}
+.tag{color:#a7b5c9;font-size:12px;margin-top:7px}
+main{padding:22px 16px;max-width:650px;margin:auto}
+h1{font-size:27px;line-height:1.3}
+h1 span{color:#49e5a2}
+.desc{color:#aab7ca;line-height:1.7}
+.card{
+ background:#121d30;border:1px solid #293b54;
+ border-radius:16px;padding:19px;margin-top:22px;
+}
+label{display:block;margin:15px 0 9px;font-weight:bold}
+input,select{
+ width:100%;padding:15px;border-radius:10px;
+ border:1px solid #354861;background:#091323;
+ color:white;font-size:15px;
+}
+button{
+ width:100%;padding:16px;border:0;border-radius:10px;
+ background:#36d99a;color:#07150f;font-size:16px;
+ font-weight:bold;margin-top:17px;cursor:pointer;
+}
+button:disabled{opacity:.6}
+.note{
+ color:#aab7ca;font-size:13px;line-height:1.7;
+ margin-top:14px;
+}
+.status{
+ display:none;background:#0b2d27;border:1px solid #258568;
+ padding:14px;border-radius:10px;margin-top:17px;
+ line-height:1.7;font-size:14px;
+}
+.features{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.feature{
+ background:#121d30;border:1px solid #293b54;
+ padding:15px;border-radius:12px;font-size:14px;
+}
+.feature b{display:block;color:#49e5a2;margin-bottom:7px}
+footer{text-align:center;color:#8090a6;padding:30px 10px;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+ <div class="logo">SHANI <span>CLIP AI</span></div>
+ <div class="tag">YOUR AI VIDEO CLIPPING STUDIO</div>
+</header>
+
+<main>
+ <h1>Turn Long Videos Into <span>Short Clips!</span></h1>
+ <p class="desc">
+ Welcome to SHANI CLIP AI. Apni video ka link dein
+ aur Shorts banane ke liye tayyar ho jayen.
+ </p>
+
+ <div class="card">
+  <h2>🎬 Create Your Clips</h2>
+  <label>YouTube Video Link</label>
+  <input id="videoLink" type="url"
+   placeholder="https://www.youtube.com/watch?v=...">
+
+  <label>Number of Clips</label>
+  <select id="clipCount">
+   <option value="10">10 Clips</option>
+   <option value="12">12 Clips</option>
+   <option value="15">15 Clips</option>
+  </select>
+
+  <label>Video Format</label>
+  <select id="format">
+   <option value="9:16">YouTube Shorts (9:16)</option>
+  </select>
+
+  <button id="generate" onclick="checkVideo()">
+   ✂️ CHECK VIDEO LINK
+  </button>
+
+  <div class="status" id="status"></div>
+
+  <p class="note">
+   ⚠️ Note: This is the first version of SHANI CLIP AI.
+   Automatic video processing engine will be connected
+   in the next development stage. Use videos you own
+   or have permission to process.
+  </p>
+ </div>
+
+ <div class="features">
+  <div class="feature">
+   <b>✂️ AI CLIPPING</b>
+   Automatic short clip creation
+  </div>
+  <div class="feature">
+   <b>📱 9:16 FORMAT</b>
+   Vertical Shorts format
+  </div>
+  <div class="feature">
+   <b>🎯 10–15 CLIPS</b>
+   Choose your clip quantity
+  </div>
+  <div class="feature">
+   <b>⬇️ DOWNLOAD</b>
+   Download clips when processing is connected
+  </div>
+ </div>
+</main>
+
+<footer>© 2026 SHANI CLIP AI | Made with ❤️</footer>
+
+<script>
+function checkVideo(){
+ const link=document.getElementById('videoLink').value.trim();
+ const status=document.getElementById('status');
+
+ const valid =
+ /^https?:\/\/(www\.)?(youtube\.com\/(watch\?v=|shorts\/)|youtu\.be\/)/i.test(link);
+
+ status.style.display='block';
+
+ if(!valid){
+  status.innerHTML='❌ Please enter a valid YouTube video link.';
+  return;
+ }
+
+ const count=document.getElementById('clipCount').value;
+
+ status.innerHTML=
+ '✅ YouTube link format is correct!<br><br>'+
+ 'Selected clips: '+count+
+ '<br><br>Next step: Connect the authorized video processing engine. '+
+ 'This version does not download or generate clips yet.';
+}
+</script>
+</body>
+</html>
